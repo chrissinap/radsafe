@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detailed profiles</title>
+</head>
+<body>
+{% if profile %}
+    <ul>
+        <li>{{ profile.name }}</li>
+        <li>{{ profile.get_gender_display }}</li>
+        <li>{{ profile.identification_number }}</li>
+        {% if certification %}
+            <li>{{ certification.get_training_type_display }}</li>
+        {% else %}
+            <li>No Certification.</li>
+        {% endif %}
+    </ul>
+{% endif %}
+</body>
+</html>

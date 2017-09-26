@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profiles</title>
+</head>
+<body>
+{% if profile_list%}
+    <table border="1">
+        <tr>
+            <td>姓名</td>
+            <td>性别</td>
+            <td>身份证号</td>
+            <td>手机号码</td>
+            <td>部门</td>
+            <td>片区</td>
+            <td>在岗情况</td>
+        </tr>
+        {% for profile in profile_list %}
+            <tr>
+                <td><a href="/training_management/{{ profile.pk }}">{{ profile.name }}</a> </td>
+                <td>{{ profile.get_gender_display }}</td>
+                <td>{{ profile.identification_number }}</td>
+                <td>{{ profile.phone_number }}</td>
+                <td>{{ profile.get_department_display }}</td>
+                <td>{{ profile.get_sector_display }}</td>
+                <td>{{ profile.get_is_valid_display }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+<!--{% if profile_list %}-->
+    <!--<ul>-->
+        <!--{% for profile in profile_list %}-->
+        <!--<li>{{ profile.name }}-{{ profile.department}}</li>-->
+        <!--{% endfor %}-->
+    <!--</ul>-->
+<!--{% endif %}-->
+</body>
+</html>
